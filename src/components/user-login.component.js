@@ -19,7 +19,7 @@ export default class UserLogin extends Component {
 
     // Upon mounting and initializing the Component, fetch all users from the database
     componentDidMount() {
-        axios.get('https://60c8204b1466ad8c76f8d97f--body-mass-index-cal.netlify.app/users/')
+        axios.get('https://body-mass-index-cal.herokuapp.com/users/')
             .then(response => {
                 this.setState({ users: response.data});
                 console.log(this.state.users);
