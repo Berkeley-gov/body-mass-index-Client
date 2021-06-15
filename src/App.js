@@ -12,15 +12,6 @@ import Footer from "./components/footer.component";
 import Image from "./components/BMIimage.component";
 
 class App extends Component {
-    state = {
-        data: null
-    };
-
-    componentDidMount() {
-        this.callBackendAPI()
-            .then(response => this.setState({ data: response.data }))
-            .catch(err => console.log(err));
-    }
 
     render() {
         return (
