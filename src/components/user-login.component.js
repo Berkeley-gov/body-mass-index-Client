@@ -1,6 +1,5 @@
 import React, { Component} from 'react';
 import axios from 'axios';
-import UserHome from "./user-home.component";
 
 export default class UserLogin extends Component {
     constructor(props) {
