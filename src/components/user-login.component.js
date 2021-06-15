@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 export default class UserLogin extends Component {
     constructor(props) {
@@ -69,7 +70,8 @@ export default class UserLogin extends Component {
                 window.cookie = `username=${credentials.username}`;
 
                 // If the user is authenticated, then redirect them to home page
-                history.push('/home');
+                window.history.push('/home');
+                return <Redirect to="/login" />
 
             } else if(authentication === false) {
                 // Grabs the paragraph element from the dom based on it's ID
