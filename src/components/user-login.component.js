@@ -51,10 +51,7 @@ export default class UserLogin extends Component {
         console.log('\nUser attempted to login with the following credentials:');
         console.log(userLoggingIn);
 
-
         this.checkCredentials(userLoggingIn);
-
-
     }
 
     checkCredentials = (credentials) => {
@@ -72,7 +69,7 @@ export default class UserLogin extends Component {
                 window.cookie = `username=${credentials.username}`;
 
                 // If the user is authenticated, then redirect them to home page
-                // window.location = 'https://60c834a3fba19f7f36ce5d32--body-mass-index-cal.netlify.app/home';
+                window.location = 'https://60c835db1466ada7f6f8d9bd--body-mass-index-cal.netlify.app/home';
 
             } else {
                 // Grabs the paragraph element from the dom based on it's ID
