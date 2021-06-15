@@ -70,8 +70,6 @@ export default class UserLogin extends Component {
                 window.cookie = `username=${credentials.username}`;
 
                 // If the user is authenticated, then redirect them to home page
-                this.props.history.push('/home');
-
                 return <Redirect to="/home" />
 
             } else if(authentication === false) {
