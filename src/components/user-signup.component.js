@@ -70,7 +70,7 @@ export default class UserSignUp extends Component {
 
         // Using axios to make http post request to the back end api
         // Front end server uses the port number 3000, not 5000 like the backend port number
-        axios.post('http://localhost:3000/users/add', user)
+        axios.post('https://60c8204b1466ad8c76f8d97f--body-mass-index-cal.netlify.app/users/add', user)
             .then(response => console.log(response))
             .catch(error => console.log('+ Failed to make the axios post request to add user to the database: ' + error));
 
