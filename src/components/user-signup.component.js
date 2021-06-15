@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import React from 'react';
 import axios from 'axios';
-import {Redirect} from 'react-router-dom';
 
 export default class UserSignUp extends Component {
     constructor(props) {
@@ -76,9 +75,7 @@ export default class UserSignUp extends Component {
             .catch(error => console.log('+ Failed to make the axios post request to add user to the database: ' + error));
 
         // Takes the user back to the login page
-        // window.location = 'https://body-mass-index-cal.netlify.app/login';
-        return <Redirect to="/login" />
-
+        window.location = '/login';
     }
 
     // Form code to render to the front-end view

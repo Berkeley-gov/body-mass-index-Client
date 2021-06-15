@@ -19,8 +19,8 @@ class App extends Component {
                 <div className="bg-body">
                     <Navbar />
                     <Image/>
-                    <Route path="https://60c835db1466ada7f6f8d9bd--body-mass-index-cal.netlify.app/home" exact component = {UserHome} />
-                    <Route path="https://60c835db1466ada7f6f8d9bd--body-mass-index-cal.netlify.app/login" component={UserLogin} />
+                    <Route path="/home" exact component = {UserHome} />
+                    <Route path="/login" component={UserLogin} />
                     <Route path="/users/" component={UserSignUp} />
                     <Route path="/update/:id" component={UserUpdate} />
                     <img id="healthPic"  className="img-responsive shadow" src="https://www.myhealthunlimited.com/wp-content/themes/encompass/images/layout/feat-img-sample.jpg" alt="" />
