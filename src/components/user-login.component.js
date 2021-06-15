@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import axios from 'axios';
 import UserHome from "./user-home.component";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 export default class UserLogin extends Component {
     constructor(props) {
