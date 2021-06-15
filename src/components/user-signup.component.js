@@ -75,7 +75,7 @@ export default class UserSignUp extends Component {
             .catch(error => console.log('+ Failed to make the axios post request to add user to the database: ' + error));
 
         // Takes the user back to the login page
-        window.location.href = '/login';
+        location.href = '/login';
     }
 
     // Form code to render to the front-end view
