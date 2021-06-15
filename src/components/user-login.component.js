@@ -70,8 +70,9 @@ export default class UserLogin extends Component {
                 window.cookie = `username=${credentials.username}`;
 
                 // If the user is authenticated, then redirect them to home page
-                window.history.push('/home');
-                return <Redirect to="/login" />
+                this.props.history.push('/home');
+
+                return <Redirect to="/home" />
 
             } else if(authentication === false) {
                 // Grabs the paragraph element from the dom based on it's ID
