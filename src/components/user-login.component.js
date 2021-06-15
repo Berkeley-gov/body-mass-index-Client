@@ -72,7 +72,7 @@ export default class UserLogin extends Component {
                 window.cookie = `username=${credentials.username}`;
 
                 // If the user is authenticated, then redirect them to home page
-                window.location = '/home';
+                window.location = 'https://body-mass-index-cal.netlify.app//home';
 
             } else {
                 // Grabs the paragraph element from the dom based on it's ID
