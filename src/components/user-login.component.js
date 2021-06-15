@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
-import {Redirect} from 'react-router-dom';
 import axios from 'axios';
+import UserHome from "./user-home.component";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 export default class UserLogin extends Component {
     constructor(props) {
@@ -74,7 +75,7 @@ export default class UserLogin extends Component {
 
                 // If the user is authenticated, then redirect them to home page
                 // window.location = 'https://body-mass-index-cal.netlify.app/home';
-                return <Redirect to="/home" />
+                return <Route path="/home" exact component = {UserHome} />
 
             } else {
                 // Grabs the paragraph element from the dom based on it's ID
