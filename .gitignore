@@ -1,0 +1,26 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+<<<<<<< HEAD:client/.gitignore
+/mern-exercise-tracker/build
+=======
+>>>>>>> b6ec08f1f7fa3b51cda67a364a4bbbaa10e7d2f6:.gitignore
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
