@@ -19,6 +19,11 @@ export default class UserHome extends Component {
         this.onChangeWeight = this.onChangeWeight.bind(this);
     }
 
+    componentDidMount() {
+        let sessionMemory = sessionStorage.getItem('username');
+        console.log('the cookie worked - username is: ' + sessionMemory);
+    }
+
     // Function sets the state for the heightInFeet property
     onChangeFeet = (e) => {
         this.setState({ heightInFeet: Number(e.target.value) });
@@ -44,6 +49,7 @@ export default class UserHome extends Component {
 
         let BMI = this.calculateBodyMassIndex(this.state.heightInFeet, this.state.heightInInches, this.state.weight);
         console.log(`\n> BMI was calculated to approximately:  ${BMI.toPrecision(4)}`);
+
     }
     
     render() {

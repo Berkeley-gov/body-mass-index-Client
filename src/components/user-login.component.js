@@ -66,7 +66,7 @@ export default class UserLogin extends Component {
                 console.log('\n> User successfully authenticated and logged into their account.');
 
                 // Setting the user login cookies
-                window.cookie = `username=${credentials.username}`;
+                sessionStorage.setItem('username', credentials.username);
 
                 // If the user is authenticated, then redirect them to home page
                 this.props.history.push('/home');
