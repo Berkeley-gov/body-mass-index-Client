@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import React from 'react';
 import axios from 'axios';
+import mongoose from 'mongoose';
+
 
 export default class UserSignUp extends Component {
     constructor(props) {
@@ -58,6 +60,7 @@ export default class UserSignUp extends Component {
 
         // Creating a user object on form submit and initializing all variables for it
         const user = {
+            _id: 0,
             username: this.state.username,
             password: this.state.password,
             first_name: this.state.first_name,
