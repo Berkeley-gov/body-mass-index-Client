@@ -24,10 +24,6 @@ export default class UserHome extends Component {
         let sessionMemory = sessionStorage.getItem('username');
         console.log('the cookie worked - username is: ' + sessionMemory);
 
-        let username = {
-            username: sessionMemory
-        };
-
         axios.get('https://body-mass-index-cal.herokuapp.com/find' + sessionStorage.getItem('username'))
             .then(response => console.log(response))
             .catch(error => console.log('+ Failed to make the axios post request to add user to the database: ' + error));
