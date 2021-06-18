@@ -58,7 +58,6 @@ export default class UserSignUp extends Component {
 
         // Creating a user object on form submit and initializing all variables for it
         const user = {
-            _id: 2,
             username: this.state.username,
             password: this.state.password,
             first_name: this.state.first_name,
