@@ -23,7 +23,8 @@ export default class UserHome extends Component {
     componentDidMount() {
         let sessionMemory = sessionStorage.getItem('username');
         console.log('\nUsername from COOKIE is: ' + sessionMemory);
-
+        // the url is sent with parameter that the backend will then extract
+        // ** before, I was putting https://body-mass-index-cal.herokuapp.com/find/?username=ramjam but that is not how you should do it
         axios.get('https://body-mass-index-cal.herokuapp.com/find/' + sessionStorage.getItem('username'))
             .then(response => console.log(response))
             .catch(error => console.log('+ Failed to make the axios get request for user information: ' + error));
