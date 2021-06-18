@@ -22,7 +22,7 @@ export default class UserHome extends Component {
 
     componentDidMount() {
         let sessionMemory = sessionStorage.getItem('username');
-        console.log('the cookie worked - username is: ' + sessionMemory);
+        console.log('\nUsername from COOKIE is: ' + sessionMemory);
 
         axios.get('https://body-mass-index-cal.herokuapp.com/find?username=' + sessionStorage.getItem('username'))
             .then(response => console.log(response))
