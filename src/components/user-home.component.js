@@ -11,7 +11,8 @@ export default class UserHome extends Component {
         this.state = {
             heightInFeet: '',
             heightInInches: '',
-            weight: ''
+            weight: '',
+            userLoggedIn: {}
         };
 
         // Data binding the 'this' keyword to its appropriate function
@@ -26,7 +27,11 @@ export default class UserHome extends Component {
         // the url is sent with parameter that the backend will then extract
         // ** before, I was putting https://body-mass-index-cal.herokuapp.com/find/?username=ramjam but that is not how you should do it
         axios.get('https://body-mass-index-cal.herokuapp.com/find/' + sessionStorage.getItem('username'))
-            .then(response => console.log(response))
+            .then(response => {
+                console.log(`\> Current user data retrieved - DATA: ${response.data}`);
+                console.log(response);
+                this.setState({ user: response.data });
+            })
             .catch(error => console.log('+ Failed to make the axios get request for user information: ' + error));
     }
 
@@ -63,6 +68,13 @@ export default class UserHome extends Component {
         return (
             <div className="container-fluid">
                 <main className="row" style={{ margin: '150px 0'}}>
+                    {/* start of the welcome board section of the home page  */}
+                    <section className="col-md-12" style={{ margin: '80px auto' }}>
+                        <div className="card bg-light">
+                            <h3 className="card-title">Welcome {sessionStorage.getItem('username')}</h3>
+
+                        </div>
+                    </section>
 
                     <section className="col-md-6 will">
                         <div className="card mb-5 shadow p-1">
@@ -114,7 +126,7 @@ export default class UserHome extends Component {
 
                     <section className="col-md-6 will">
                         <div className="card shadow">
-                            <div className="card-header text-center bg-dark text-muted text-white">
+                            <div className="card-header text-center bg-dark text-white">
                                 BMI Calculator
                             </div>
                             <div className="card-body p-5">
@@ -175,7 +187,7 @@ export default class UserHome extends Component {
                             </div>
 
                             <p className="card-text text-center text-muted"><small>Note: this calculator uses JavaScript. If you have JavaScript turned off or have problems using the calculator, use the formula for calculating BMI on <a href="https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html">About BMI for Adults</a>.</small></p>
-                            <div className="card-footer text-center bg-dark text-white text-muted">
+                            <div className="card-footer text-center bg-dark text-white">
                                 2 days ago
                             </div>
                         </div>

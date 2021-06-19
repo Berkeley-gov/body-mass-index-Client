@@ -5,7 +5,7 @@ export default class Navbar extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark  bg-dark">
-                <div className="container-fluid">
+                <div className="container-fluid text-center">
                     <Link to="/home" className="navbar-brand">BMI Calculator</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -18,24 +18,10 @@ export default class Navbar extends Component {
                                 <Link to="/home" className="nav-link active" aria-current="page">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/update/:id" className="nav-link">Update Account</Link>
-                            </li>
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-                                   data-bs-toggle="dropdown" aria-expanded="false">
-                                    Account
-                                </a>
-                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a className="dropdown-item" >Action</a></li>
-                                    <li><a className="dropdown-item" >Another action</a></li>
-                                    <li>
-                                        <hr className="dropdown-divider"/>
-                                    </li>
-                                    <li><a className="dropdown-item">Something else here</a></li>
-                                </ul>
+                                <Link to="/update/:id" className="nav-link active">Account</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/users/add" className="nav-link" tabIndex="-1"
+                                <Link to="/users/add" className="nav-link active" tabIndex="-1"
                                       aria-disabled="true">Sign Up</Link>
                             </li>
                         </ul>
