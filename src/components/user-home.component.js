@@ -28,9 +28,9 @@ export default class UserHome extends Component {
         // ** before, I was putting https://body-mass-index-cal.herokuapp.com/find/?username=ramjam but that is not how you should do it
         axios.get('https://body-mass-index-cal.herokuapp.com/find/' + sessionStorage.getItem('username'))
             .then(response => {
-                console.log('\n> Current user data retrieved - DATA: ' + response);
-                this.setState({ user: response });
-                console.log(this.state.user.first_name);
+                console.log('\n> Current user data retrieved - DATA: ' + response.data);
+                this.setState({ userLoggedIn: response });
+                console.log(this.state.userLoggedIn.first_name);
 
             })
             .catch(error => console.log('+ Failed to make the axios get request for user information: ' + error));
