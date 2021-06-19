@@ -12,8 +12,8 @@ export default class UserHome extends Component {
             heightInFeet: '',
             heightInInches: '',
             weight: '',
-            userLoggedIn: {}
-        };
+            userLoggedIn: null
+        }
 
         // Data binding the 'this' keyword to its appropriate function
         this.onChangeFeet = this.onChangeFeet.bind(this);
