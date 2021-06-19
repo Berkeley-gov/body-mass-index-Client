@@ -85,8 +85,8 @@ export default class UserLogin extends Component {
 
     render() {
         return (
-            <div className="loginForm shadow p-2" style={{ margin: '400px auto'}}>
-                <form style={{ width: '30rem'}} onSubmit={this.onSubmit}>
+            <div className="loginForm shadow p-2" style={{ margin: '400px auto', width: '36rem'}}>
+                <form onSubmit={this.onSubmit}>
                     <div className="card form-group">
                         <h2 className="card-header text-center bg-dark text-white">Login</h2>
 
