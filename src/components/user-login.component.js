@@ -85,37 +85,47 @@ export default class UserLogin extends Component {
 
     render() {
         return (
-            <div className="loginForm shadow bg-light p-2" style={{ margin: '120px auto', width: '32rem'}}>
+            <div className="loginForm shadow bg-body" style={{ margin: '200px auto', width: '32rem'}}>
                 <form  onSubmit={this.onSubmit}>
-                    <div className="card form-group">
+                    <div className="card form-group bg-body">
                         <h2 className="card-header text-center bg-dark text-white">Login</h2>
 
                         <div className="form-group p-5">
                             <div className="form-group mb-4">
-                                <label>Username: </label>
-                                <input type="text"
-                                       value={this.state.username}
-                                       className="form-control"
-                                       onChange={this.onChangeUsername}
-                                       placeholder="Enter username"
-                                       required />
+
+                                <label className="pb-3 fs-4">Username: </label>
+                                <div className="input-group flex-nowrap">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text" id="addon-wrapping">@</span>
+                                    </div>
+                                    <input type="text"
+                                           value={this.state.username}
+                                           className="form-control "
+                                           onChange={this.onChangeUsername}
+                                           required />
+                                </div>
                             </div>
 
                             <div className="form-group">
-                                <label>Password: </label>
-                                <input
-                                    type="password"
-                                    className="form-control"
-                                    value={this.state.password}
-                                    onChange={this.onChangePassword}
-                                    placeholder="Enter password"
-                                    required />
+                                <label className="pb-3 fs-4">Password: </label>
+
+                                <div className="input-group flex-nowrap">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text" id="addon-wrapping">#</span>
+                                    </div>
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        value={this.state.password}
+                                        onChange={this.onChangePassword}
+                                        required />
+                                </div>
                             </div>
 
                             <p id="warning-text"></p>
 
-                            <div  className="form-group mt-2 pt-4">
-                                <input type="submit" value="Login" className="btn btn-primary" />
+                            <div  className="form-group mt-2 pt-4" >
+                                <input style={{ width: '6rem', marginLeft: '20rem'}} type="submit" value="Login" className="btn btn-primary" />
                             </div>
                         </div>
                     </div>

@@ -23,7 +23,7 @@ class App extends Component {
                     <Route path="/login" component={UserLogin} />
                     <Route path="/users/" component={UserSignUp} />
                     <Route path="/update/:id" component={UserUpdate} />
-                    <img id="healthPic"  className="img-responsive shadow" src="https://www.myhealthunlimited.com/wp-content/themes/encompass/images/layout/feat-img-sample.jpg" alt="" />
+                    <img id="healthPic" style={{ height: '280px', width:' 100%'}} className="img-responsive" src="https://www.myhealthunlimited.com/wp-content/themes/encompass/images/layout/feat-img-sample.jpg" alt="" />
                     <Footer />
                 </div>
             </Router>
