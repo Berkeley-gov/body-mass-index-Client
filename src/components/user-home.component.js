@@ -82,7 +82,7 @@ export default class UserHome extends Component {
 
     
     render() {
-        if(this.state.userLoggedIn !== null) {
+        if(this.state.userLoggedIn === null) {
             return(
                 <div><p className="text-center">Please Log in. <Link to="/login" className="nav-link active">Go back.</Link></p></div>
             )
