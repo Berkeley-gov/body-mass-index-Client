@@ -12,6 +12,9 @@ import Footer from "./components/footer.component";
 import Image from "./components/BMIimage.component";
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+    }
 
     render() {
         this.props.history.push('/login');
