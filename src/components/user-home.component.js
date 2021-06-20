@@ -33,7 +33,9 @@ export default class UserHome extends Component {
             })
             .catch(error => console.log('+ Failed to make the axios get request for user information: ' + error));
 
-        console.log(this.state.userLoggedIn.first_name);
+        console.log(this.state.userLoggedIn.data);
+        console.log(this.state.userLoggedIn.data[0]);
+        console.log(this.state.userLoggedIn.data[0].first_name);
     }
 
     // Function sets the state for the heightInFeet property
