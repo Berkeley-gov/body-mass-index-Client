@@ -7,13 +7,21 @@ export default class UserHome extends Component {
         super(props);
 
         // For now, I am going to capture the basic metrics needed for the BMI formula
-        // ** Might change approach later
         this.state = {
             heightInFeet: '',
             heightInInches: '',
             weight: '',
-            userLoggedIn: {}
+            userLoggedIn: {},
         }
+
+        // HTTP GET REQUEST: Retrieves the user that is current logged into the application
+        axios.get('https://body-mass-index-cal.herokuapp.com/find/' + sessionStorage.getItem('username'))
+            .then(response => {
+                console.log(response.data[0]);
+                this.setState({ userLoggedIn: response.data[0] });
+                console.log(this.state.userLoggedIn);
+            })
+            .catch(error => console.log('+ Failed to make the axios get request for user information: ' + error));
 
         // Data binding the 'this' keyword to its appropriate function
         this.onChangeFeet = this.onChangeFeet.bind(this);
@@ -23,18 +31,10 @@ export default class UserHome extends Component {
 
     componentDidMount() {
         let sessionMemory = sessionStorage.getItem('username');
-        console.log('\nUsername from COOKIE is: ' + sessionMemory);
+        console.log(sessionMemory);
+        console.log('\nCOOKIE has the following information: ' + sessionMemory);
         // the url is sent with parameter that the backend will then extract
         // ** before, I was putting https://body-mass-index-cal.herokuapp.com/find/?username=ramjam but that is not how you should do it
-        axios.get('https://body-mass-index-cal.herokuapp.com/find/' + sessionStorage.getItem('username'))
-            .then(response => {
-                console.log(response);
-                this.setState({ userLoggedIn: response });
-            })
-            .catch(error => console.log('+ Failed to make the axios get request for user information: ' + error));
-
-        console.log(this.state.userLoggedIn);
-        console.log(this.state.userLoggedIn.first_name);
     }
 
     // Function sets the state for the heightInFeet property
@@ -60,23 +60,17 @@ export default class UserHome extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-
         let BMI = this.calculateBodyMassIndex(this.state.heightInFeet, this.state.heightInInches, this.state.weight);
         console.log(`\n> BMI was calculated to approximately:  ${BMI.toPrecision(4)}`);
-
     }
     
     render() {
         return (
-            <div className="container-fluid">
-                <main className="row" style={{ margin: '150px 0'}}>
+            <div className="container-fluid fs-5 lh-base">
+                <main className="row" style={{ margin: '100px 0'}}>
                     {/* start of the welcome board section of the home page  */}
-                    <section className="col-md-12" style={{ margin: '80px auto' }}>
-                        <div className="card bg-light">
-                            <h3 className="card-title">Welcome {sessionStorage.getItem('username')}</h3>
-
-                        </div>
-                    </section>
+                    <h2 className="col-md-12 text-center fs-1 mb-5">Welcome {this.state.userLoggedIn.first_name}!</h2>
+                    <p className="text-center fs-4" style={{ marginBottom: '60px' }}>Enter your height and weight below to find your body mass index (BMI). This number is commonly used to judge whether your weight is healthy.</p>
 
                     <section className="col-md-6 will">
                         <div className="card mb-5 shadow p-1">
@@ -97,7 +91,7 @@ export default class UserHome extends Component {
                             </div>
                         </div>
 
-                        <div className="card shadow p-1 mt-5">
+                        <div className="card shadow p-1 mt-5 mb-5">
                             <div className="row no-gutters">
                                 <div className="col">
                                     <div className="card-body">

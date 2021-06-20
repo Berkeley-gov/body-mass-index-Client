@@ -63,10 +63,10 @@ export default class UserLogin extends Component {
 
             if(authentication) {
                 // If the user is successfully authenticated, then redirect the user to the home page
-                console.log('\n> User successfully authenticated and logged into their account.');
+                console.log('\n> User successfully authenticated and logged into their account.\nUSER LOGGED IN:' + arrayElement.first_name);
 
                 // Setting the user login cookies
-                sessionStorage.setItem('username', credentials.username);
+                sessionStorage.setItem('username', arrayElement.username);
 
                 // If the user is authenticated, then redirect them to home page
                 this.props.history.push('/home');
@@ -78,7 +78,7 @@ export default class UserLogin extends Component {
                 // Set text context to the paragraph element and color it red
                 warningText.innerHTML = "Username or password was incorrect. Please try again!";
                 warningText.style.color = "red";
-                warningText.style.fontSize = "12px";
+                warningText.style.fontSize = "16px";
             }
         }
     }
@@ -96,7 +96,7 @@ export default class UserLogin extends Component {
                                 <label className="pb-3 fs-4">Username: </label>
                                 <div className="input-group flex-nowrap">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text" id="addon-wrapping">@</span>
+                                        <span className="input-group-text bg-dark text-white" id="addon-wrapping">@</span>
                                     </div>
                                     <input type="text"
                                            value={this.state.username}
@@ -111,7 +111,7 @@ export default class UserLogin extends Component {
 
                                 <div className="input-group flex-nowrap">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text" id="addon-wrapping">#</span>
+                                        <span className="input-group-text bg-dark text-white" id="addon-wrapping">#</span>
                                     </div>
                                     <input
                                         type="password"
@@ -125,7 +125,7 @@ export default class UserLogin extends Component {
                             <p id="warning-text"></p>
 
                             <div  className="form-group mt-2 pt-4" >
-                                <input style={{ width: '6rem', marginLeft: '20rem'}} type="submit" value="Login" className="btn btn-primary" />
+                                <input style={{ width: '6rem'}} type="submit" value="Submit" className="btn btn-primary" />
                             </div>
                         </div>
                     </div>
