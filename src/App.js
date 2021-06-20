@@ -19,11 +19,10 @@ class App extends Component {
                 <div className="bg-body">
                     <Navbar />
                     <Image/>
-                    <Route path="/home" exact component = {UserHome} />
-                    <Route path="/login" component={UserLogin} />
+                    <Route path="/home" component = {UserHome} />
+                    <Route path="/login" exact={true} component={UserLogin} />
                     <Route path="/users/" component={UserSignUp} />
                     <Route path="/update/:id" component={UserUpdate} />
-                    <UserLogin />
                     <img id="healthPic" style={{ height: '280px', width:' 100%'}} className="img-responsive" src="https://www.myhealthunlimited.com/wp-content/themes/encompass/images/layout/feat-img-sample.jpg" alt="" />
                     <Footer />
                 </div>
