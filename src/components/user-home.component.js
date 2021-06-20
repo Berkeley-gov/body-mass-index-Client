@@ -29,7 +29,7 @@ export default class UserHome extends Component {
         axios.get('https://body-mass-index-cal.herokuapp.com/find/' + sessionStorage.getItem('username'))
             .then(response => {
                 console.log(response);
-                this.setState({ userLoggedIn: response });
+                this.setState({ userLoggedIn: response.data });
             })
             .catch(error => console.log('+ Failed to make the axios get request for user information: ' + error));
 
