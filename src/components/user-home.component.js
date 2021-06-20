@@ -12,7 +12,7 @@ export default class UserHome extends Component {
             heightInFeet: '',
             heightInInches: '',
             weight: '',
-            userLoggedIn: null
+            userLoggedIn: []
         }
 
         // Data binding the 'this' keyword to its appropriate function
