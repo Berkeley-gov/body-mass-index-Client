@@ -60,9 +60,17 @@ export default class UserHome extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
+        // BMI stores the user's body mass index which is already calculated before assignment
         let BMI = this.calculateBodyMassIndex(this.state.heightInFeet, this.state.heightInInches, this.state.weight);
         console.log(`\n> BMI was calculated to approximately:  ${BMI.toPrecision(4)}`);
+
+        axios.put('https://body-mass-index-cal.herokuapp.com/update/' + this.state.userLoggedIn._id, {
+            Body_Mass_Index: BMI
+        })
+            .then(response => console.log(`\n> User's body mass index was updated to the database: ${response}`))
+            .catch(error => console.log(`\n> Failed to load the user's body mass index: ${error}`));
     }
+
     
     render() {
         return (
@@ -176,7 +184,7 @@ export default class UserHome extends Component {
                                         </div>
 
                                         <div className="col-6">
-                                            <input type="submit" className="btn btn-primary shadow mt-4 ml-4" value="Calculate BMI"/>
+                                            <input type="submit" className="btn btn-primary mt-4 ml-4" value="Calculate BMI"/>
                                         </div>
                                     </div>
                                 </form>
