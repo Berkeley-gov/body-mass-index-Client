@@ -14,6 +14,8 @@ import Image from "./components/BMIimage.component";
 class App extends Component {
 
     render() {
+        this.props.history.push('/login');
+
         return (
             <Router>
                 <div className="bg-body">
