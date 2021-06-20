@@ -12,6 +12,7 @@ export default class UserHome extends Component {
             heightInInches: '',
             weight: '',
             userLoggedIn: {},
+            bodyMassIndex: 0
         }
 
         // HTTP GET REQUEST: Retrieves the user that is current logged into the application
@@ -61,14 +62,21 @@ export default class UserHome extends Component {
         e.preventDefault();
 
         // BMI stores the user's body mass index which is already calculated before assignment
-        let BMI = this.calculateBodyMassIndex(this.state.heightInFeet, this.state.heightInInches, this.state.weight);
-        console.log(`\n> BMI was calculated to approximately:  ${BMI.toPrecision(4)}`);
+        let newBMI = this.calculateBodyMassIndex(this.state.heightInFeet, this.state.heightInInches, this.state.weight);
+        console.log(`\n> BMI was calculated to approximately:  ${newBMI.toPrecision(4)}`);
+
+        this.setState({ bodyMassIndex: newBMI.toPrecision(4) });
 
         axios.put('https://body-mass-index-cal.herokuapp.com/update/' + this.state.userLoggedIn._id, {
-            Body_Mass_Index: BMI
+            Body_Mass_Index: newBMI
         })
             .then(response => console.log(`\n> User's body mass index was updated to the database: ${response}`))
             .catch(error => console.log(`\n> Failed to load the user's body mass index: ${error}`));
+
+        let userBMI = document.getElementById('bodyMassIndex');
+
+        userBMI.style.backgroundColor = 'rgba(205, 14, 14, 0.9)';
+        userBMI.innerHTML = `BODY MASS INDEX: ${newBMI.toPrecision(4)}`;
     }
 
     
@@ -184,8 +192,12 @@ export default class UserHome extends Component {
                                         </div>
 
                                         <div className="col-6">
-                                            <input type="submit" className="btn btn-primary mt-4 ml-4" value="Calculate BMI"/>
+                                            <div id="bodyMassIndex" className="p-4 text-center text-white">
+
+                                            </div>
                                         </div>
+
+                                        <input type="submit" className="btn btn-lg btn-outline-success mt-5" value="Calculate"/>
                                     </div>
                                 </form>
                             </div>
