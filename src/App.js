@@ -12,20 +12,15 @@ import Footer from "./components/footer.component";
 import Image from "./components/BMIimage.component";
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
-        this.props.history.push('/login');
-
         return (
             <Router>
                 <div className="bg-body">
                     <Navbar />
                     <Image/>
-                    <Route path="/home" component = {UserHome} />
-                    <Route path="/login" exact={true} component={UserLogin} />
+                    <Route path="/home" exact={true} component = {UserHome} />
+                    <Route path="/login" component={UserLogin} />
                     <Route path="/users/" component={UserSignUp} />
                     <Route path="/update/:id" component={UserUpdate} />
                     <img id="healthPic" style={{ height: '280px', width:' 100%'}} className="img-responsive" src="https://www.myhealthunlimited.com/wp-content/themes/encompass/images/layout/feat-img-sample.jpg" alt="" />
