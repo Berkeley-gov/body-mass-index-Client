@@ -19,7 +19,7 @@ export default class Footer extends Component {
                                     <a className="nav-link active" aria-current="page" href="https://berkeley-gov.github.io/myportfolio.github.io/">My portfolio</a>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/home" className="nav-link">Home</Link>
+                                    <Link to="/" className="nav-link">Home</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link to="/login" className="nav-link" href="#" tabIndex="-1"

@@ -82,13 +82,13 @@ export default class UserSignUp extends Component {
     // Form code to render to the front-end view
     render() {
         return (
-            <div className="p-5" style={{ margin: '200px auto', width: '48rem'}}>
+            <div className="p-5" style={{ margin: '100px auto', width: '48rem'}}>
 
-                <form className="card shadow" onSubmit={this.onSubmit}>
+                <form className="card shadow-lg" onSubmit={this.onSubmit}>
                     <h2 className="card-header text-center bg-dark text-white">Create Account</h2>
-                    <div className="form-group row p-3">
+                    <div className="form-group row p-4">
                         <div className="form-group col-md-6">
-                            <label>Username: </label>
+                            <label className="fs-5 pb-2" >Username: </label>
                             <input
                                 type="text"
                                 name="username"
@@ -96,13 +96,12 @@ export default class UserSignUp extends Component {
                                 value={this.state.username}
                                 className="form-control"
                                 onChange={this.onChangeUsername}
-                                placeholder="username"
                                 autoComplete="on"
                                 required />
                         </div>
 
                         <div className="form-group col-md-6">
-                            <label>Password: </label>
+                            <label className="fs-5 pb-2">Password: </label>
                             <input
                                 type="password"
                                 name="password"
@@ -110,16 +109,15 @@ export default class UserSignUp extends Component {
                                 className="{styles.input} form-control"
                                 value={this.state.password}
                                 onChange={this.onChangePassword}
-                                placeholder="password"
                                 autoComplete="on"
                                 required
                             />
                         </div>
                     </div>
 
-                    <div className="form-group row p-3">
+                    <div className="form-group row p-4">
                         <div className="form-group col-md-6">
-                            <label>First name: </label>
+                            <label className="fs-5 pb-2">First name: </label>
                             <input
                                 type="text"
                                 name="firstname"
@@ -127,13 +125,12 @@ export default class UserSignUp extends Component {
                                 className="{styles.input} form-control"
                                 value={this.state.first_name}
                                 onChange={this.onChangeFirstName}
-                                placeholder="ex: Jacob"
                                 autoComplete="on"
                             />
                         </div>
 
                         <div className="form-group col-md-6">
-                            <label>Last name: </label>
+                            <label className="fs-5 pb-2">Last name: </label>
                             <input
                                 type="text"
                                 name="lastname"
@@ -141,40 +138,26 @@ export default class UserSignUp extends Component {
                                 className="{styles.input} form-control"
                                 value={this.state.last_name}
                                 onChange={this.onChangeLastName}
-                                placeholder="ex: Ramirez"
                                 autoComplete="on"
                             />
                         </div>
                     </div>
 
-                    <div className="form-group row p-3">
+                    <div className="form-group row p-4">
                         <div className="form-group col-md-6">
-                            <label>Age: </label>
+                            <label className="fs-5 pb-2">Age: </label>
                             <input
                                 type="number"
                                 className="{styles.input} form-control"
                                 value={this.state.age}
                                 onChange={this.onChangeAge}
-                                placeholder="ex: 24"
-                                autoComplete="on"
-                            />
-                        </div>
-
-                        <div className="form-group col-md-6">
-                            <label>Body Mass Index: </label>
-                            <input
-                                type="decimal"
-                                className="{styles.input} form-control"
-                                value={this.state.Body_Mass_Index}
-                                onChange={this.onChangeBodyMassIndex}
-                                placeholder="ex: 18.5"
                                 autoComplete="on"
                             />
                         </div>
                     </div>
 
                     <div className="form-group pt-4 pb-4">
-                       <input type="submit" value="Sign up" className="btn btn-primary" style={{marginLeft: '20px'}} />
+                       <input type="submit" value="Sign up" className="btn btn-primary fs-4" style={{marginLeft: '30px'}} />
                     </div>
                 </form>
             </div>

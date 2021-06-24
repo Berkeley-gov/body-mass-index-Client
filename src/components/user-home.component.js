@@ -19,7 +19,8 @@ export default class UserHome extends Component {
         axios.get('https://body-mass-index-cal.herokuapp.com/find/' + sessionStorage.getItem('username'))
             .then(response => {
                 console.log(response.data[0]);
-                this.setState({ userLoggedIn: response.data[0] });
+                // If the response comes back empty, then the userLoggedIn state will be assigned an empty object to prevent it from crashing
+                this.setState({ userLoggedIn: response.data[0] || {} });
                 console.log(this.state.userLoggedIn);
             })
             .catch(error => console.log('+ Failed to make the axios get request for user information: ' + error));
@@ -87,8 +88,8 @@ export default class UserHome extends Component {
         return (
             <div className="container-fluid fs-5 lh-base">
                 <main className="row" style={{ margin: '100px 0'}}>
-                    {/* start of the welcome board section of the home page  */}
-                    <h2 className="col-md-12 text-center fs-1 mb-5">Welcome {this.state.userLoggedIn.first_name}!</h2>
+                    {/* start of the welcome board section of the home page. If the user is   */}
+                    <h2 className="col-md-12 text-center fs-1 mb-5">Welcome { this.state.userLoggedIn.first_name || 'Stranger' }!</h2>
                     <p className="text-center fs-4" style={{ marginBottom: '60px' }}>Enter your height and weight below to find your body mass index (BMI). This number is commonly used to judge whether your weight is healthy.</p>
 
                     <section className="col-md-6 will">
@@ -195,7 +196,7 @@ export default class UserHome extends Component {
                                         </div>
 
                                         <div className="col-6">
-                                            <div id="bodyMassIndex" className="p-4 text-center text-white">
+                                            <div id="bodyMassIndex" className="p-2 mt-4 mb-3 text-center text-white font-weight-bold">
 
                                             </div>
                                         </div>

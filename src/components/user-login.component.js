@@ -69,7 +69,7 @@ export default class UserLogin extends Component {
                 sessionStorage.setItem('username', arrayElement.username);
 
                 // If the user is authenticated, then redirect them to home page
-                this.props.history.push('/home');
+                this.props.history.push('/');
 
             } else if(authentication === false) {
                 // Grabs the paragraph element from the dom based on it's ID

@@ -14,12 +14,14 @@ import Image from "./components/BMIimage.component";
 class App extends Component {
 
     render() {
+        sessionStorage.setItem('username', 'Stranger');
+
         return (
             <Router>
                 <div className="bg-body">
                     <Navbar />
                     <Image/>
-                    <Route path="/home" exact={true} component = {UserHome} />
+                    <Route path="/" exact={true} component = {UserHome} />
                     <Route path="/login" component={UserLogin} />
                     <Route path="/users/" component={UserSignUp} />
                     <Route path="/update/:id" component={UserUpdate} />
