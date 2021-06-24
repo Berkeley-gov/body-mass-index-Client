@@ -82,84 +82,85 @@ export default class UserSignUp extends Component {
     // Form code to render to the front-end view
     render() {
         return (
-            <div className="p-5 bg-light" style={{ margin: '100px auto', width: '48rem'}}>
+            <div className="row-fluid bg-body" style={{ margin: '200px auto'}}>
+                <div className="col-sm-6 mx-auto">
+                    <form className="card shadow-lg" onSubmit={this.onSubmit} style={{ width: '100%'}}>
+                        <h2 className="card-header text-center bg-dark text-white">Create Account</h2>
+                        <div className="form-group row p-4">
+                            <div className="form-group col-md-6">
+                                <label className="fs-5 pb-2" >Username: </label>
+                                <input
+                                    type="text"
+                                    name="username"
+                                    id="username"
+                                    value={this.state.username}
+                                    className="form-control"
+                                    onChange={this.onChangeUsername}
+                                    autoComplete="on"
+                                    required />
+                            </div>
 
-                <form className="card shadow-lg" onSubmit={this.onSubmit}>
-                    <h2 className="card-header text-center bg-dark text-white">Create Account</h2>
-                    <div className="form-group row p-4">
-                        <div className="form-group col-md-6">
-                            <label className="fs-5 pb-2" >Username: </label>
-                            <input
-                                type="text"
-                                name="username"
-                                id="username"
-                                value={this.state.username}
-                                className="form-control"
-                                onChange={this.onChangeUsername}
-                                autoComplete="on"
-                                required />
+                            <div className="form-group col-md-6">
+                                <label className="fs-5 pb-2">Password: </label>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    className="{styles.input} form-control"
+                                    value={this.state.password}
+                                    onChange={this.onChangePassword}
+                                    autoComplete="on"
+                                    required
+                                />
+                            </div>
                         </div>
 
-                        <div className="form-group col-md-6">
-                            <label className="fs-5 pb-2">Password: </label>
-                            <input
-                                type="password"
-                                name="password"
-                                id="password"
-                                className="{styles.input} form-control"
-                                value={this.state.password}
-                                onChange={this.onChangePassword}
-                                autoComplete="on"
-                                required
-                            />
-                        </div>
-                    </div>
+                        <div className="form-group row p-4">
+                            <div className="form-group col-md-6">
+                                <label className="fs-5 pb-2">First name: </label>
+                                <input
+                                    type="text"
+                                    name="firstname"
+                                    id="firstname"
+                                    className="{styles.input} form-control"
+                                    value={this.state.first_name}
+                                    onChange={this.onChangeFirstName}
+                                    autoComplete="on"
+                                />
+                            </div>
 
-                    <div className="form-group row p-4">
-                        <div className="form-group col-md-6">
-                            <label className="fs-5 pb-2">First name: </label>
-                            <input
-                                type="text"
-                                name="firstname"
-                                id="firstname"
-                                className="{styles.input} form-control"
-                                value={this.state.first_name}
-                                onChange={this.onChangeFirstName}
-                                autoComplete="on"
-                            />
+                            <div className="form-group col-md-6">
+                                <label className="fs-5 pb-2">Last name: </label>
+                                <input
+                                    type="text"
+                                    name="lastname"
+                                    id="lastname"
+                                    className="{styles.input} form-control"
+                                    value={this.state.last_name}
+                                    onChange={this.onChangeLastName}
+                                    autoComplete="on"
+                                />
+                            </div>
                         </div>
 
-                        <div className="form-group col-md-6">
-                            <label className="fs-5 pb-2">Last name: </label>
-                            <input
-                                type="text"
-                                name="lastname"
-                                id="lastname"
-                                className="{styles.input} form-control"
-                                value={this.state.last_name}
-                                onChange={this.onChangeLastName}
-                                autoComplete="on"
-                            />
+                        <div className="form-group row p-4">
+                            <div className="form-group col-md-6">
+                                <label className="fs-5 pb-2">Age: </label>
+                                <input
+                                    type="number"
+                                    className="{styles.input} form-control"
+                                    value={this.state.age}
+                                    onChange={this.onChangeAge}
+                                    autoComplete="on"
+                                />
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="form-group row p-4">
-                        <div className="form-group col-md-6">
-                            <label className="fs-5 pb-2">Age: </label>
-                            <input
-                                type="number"
-                                className="{styles.input} form-control"
-                                value={this.state.age}
-                                onChange={this.onChangeAge}
-                                autoComplete="on"
-                            />
+                        <div className="form-group pt-4 pb-4">
+                            <input type="submit" value="Sign up" className="btn btn-primary fs-4" style={{marginLeft: '30px'}} />
                         </div>
-                    </div>
-
-                    <div className="form-group pt-4 pb-4">
-                       <input type="submit" value="Sign up" className="btn btn-primary fs-4" style={{marginLeft: '30px'}} />
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         );
     }

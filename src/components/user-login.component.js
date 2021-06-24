@@ -85,30 +85,27 @@ export default class UserLogin extends Component {
 
     render() {
         return (
-            <div className="loginForm shadow-lg bg-light" style={{ margin: '200px auto', width: '32rem'}}>
-                <form  onSubmit={this.onSubmit}>
-                    <div className="card form-group bg-body">
-                        <h2 className="card-header text-center bg-dark text-white">Login</h2>
+            <div className="row-fluid">
+                <form  onSubmit={this.onSubmit} style={{ margin: '200px auto'}} className="card shadow-lg col-sm-6">
+                    <div className="card form-group bg-body" style={{ margin: '0 auto', width: '100%'}}>
+                        <h2 className="card-header text-center bg-dark text-white p-3 fs-1">Login</h2>
 
                         <div className="form-group p-5">
                             <div className="form-group mb-4">
-
-                                <label className="pb-3 fs-4">Username: </label>
                                 <div className="input-group flex-nowrap">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text bg-dark text-white" id="addon-wrapping">@</span>
                                     </div>
                                     <input type="text"
                                            value={this.state.username}
-                                           className="form-control "
+                                           className="form-control"
                                            onChange={this.onChangeUsername}
+                                           placeholder="Username"
                                            required />
                                 </div>
                             </div>
 
-                            <div className="form-group">
-                                <label className="pb-3 fs-4">Password: </label>
-
+                            <div className="form-group pt-5">
                                 <div className="input-group flex-nowrap">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text bg-dark text-white" id="addon-wrapping">#</span>
@@ -118,6 +115,7 @@ export default class UserLogin extends Component {
                                         className="form-control"
                                         value={this.state.password}
                                         onChange={this.onChangePassword}
+                                        placeholder="Password"
                                         required />
                                 </div>
                             </div>
@@ -125,7 +123,7 @@ export default class UserLogin extends Component {
                             <p id="warning-text"></p>
 
                             <div  className="form-group mt-2 pt-4" >
-                                <input style={{ width: '6rem'}} type="submit" value="Submit" className="btn btn-primary" />
+                                <input style={{ width: '6rem'}} type="submit" value="Submit" className="btn btn-primary fs-5" />
                             </div>
                         </div>
                     </div>
