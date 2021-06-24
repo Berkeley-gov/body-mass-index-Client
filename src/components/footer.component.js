@@ -16,7 +16,7 @@ export default class Footer extends Component {
                         <div className="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <a className="nav-link active" aria-current="page" href="https://berkeley-gov.github.io/myportfolio.github.io/">My portfolio</a>
+                                    <a className="nav-link active" aria-current="page" href="https://berkeley-gov.github.io/myportfolio.github.io/">Juan's portfolio</a>
                                 </li>
                                 <li className="nav-item">
                                     <Link to="/" className="nav-link">Home</Link>
