@@ -86,24 +86,24 @@ export default class UserHome extends Component {
 
     render() {
         return (
-            <div className="container-fluid fs-5 lh-base">
-                <main className="row" style={{ margin: '100px 0'}}>
+            <div className="container-fluid fs-5 lh-base bg-light">
+                <main className="row" style={{ padding: '100px 0'}}>
                     {/* start of the welcome board section of the home page. If the user is   */}
-                    <h2 className="col-md-12 text-center fs-1 mb-5">Welcome { this.state.userLoggedIn.first_name || 'Stranger' }!</h2>
+                    <h2 className="col-md-12 text-center fs-1">Welcome { this.state.userLoggedIn.first_name || 'Stranger' }!</h2>
                     <p className="text-center fs-4" style={{ marginBottom: '60px' }}>Enter your height and weight below to find your body mass index (BMI). This number is commonly used to judge whether your weight is healthy.</p>
 
                     <section className="col-md-6 will">
-                        <div className="card mb-5 shadow p-1">
+                        <div className="card mb-5 shadow-lg p-1">
                             <div className="row no-gutters">
                                 <div className="col-md-4">
                                     <img src="https://cdn2.iconfinder.com/data/icons/men-women-health-wildberry-vol-1/256/BMI_Calculator-512.png" className="card-img shadow-sm" alt="" />
                                 </div>
                                 <div className="col-md-8">
                                     <div className="card-body">
-                                        <h5 className="card-title">Body Mass Index</h5>
+                                        <h5 className="card-title fs-3">Body Mass Index</h5>
                                         <hr />
                                         <p className="card-text">Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women.</p>
-                                        <p className="card-text">Your BMI can be calculated using standard or metric measures for your height and weight.</p>
+                                        <p className="card-text pt-4">Your BMI can be calculated using standard or metric measures for your height and weight.</p>
                                         <p className="card-text"><small className="text-muted">Last updated 3 mins
                                             ago</small></p>
                                     </div>
@@ -111,22 +111,22 @@ export default class UserHome extends Component {
                             </div>
                         </div>
 
-                        <div className="card shadow p-1 mt-5 mb-5">
+                        <div className="card shadow-lg p-1 mt-5 mb-5">
                             <div className="row no-gutters">
                                 <div className="col">
                                     <div className="card-body">
-                                        <h5 className="card-title text-center pb-2">Standardized cutoff points for overweight and obesity:</h5>
+                                        <h5 className="card-title text-center pb-2 fs-3">Standardized cutoff points for overweight and obesity:</h5>
 
-                                        <ul className="list-group bg-body p-2">
-                                            <li className="list-group-item d-flex justify-content-between align-items-center bg-success text-white">
+                                        <ul className="list-group bg-body p-4">
+                                            <li className="list-group-item d-flex justify-content-between align-items-center bg-success text-white p-3">
                                                 Normal weight is a BMI between 18.5 and 24.9
                                                 <span className="badge badge-primary badge-pill bg-white text-success">18.5 - 24.9</span>
                                             </li>
-                                            <li className="list-group-item d-flex justify-content-between align-items-center bg-warning text-white">
+                                            <li className="list-group-item d-flex justify-content-between align-items-center bg-warning text-white p-3">
                                                 Overweight is a BMI between 25.0 and 29.9
                                                 <span className="badge badge-primary badge-pill bg-white text-warning"> 25.0 - 29.9</span>
                                             </li>
-                                            <li className="list-group-item d-flex justify-content-between align-items-center bg-danger text-white">
+                                            <li className="list-group-item d-flex justify-content-between align-items-center bg-danger text-white p-3">
                                                 Obesity is a BMI of 30.0 or higher
                                                 <span className="badge badge-primary badge-pill bg-white text-danger">30</span>
                                             </li>
@@ -141,8 +141,8 @@ export default class UserHome extends Component {
                     </section>
 
                     <section className="col-md-6 will">
-                        <div className="card shadow">
-                            <div className="card-header text-center bg-dark text-white">
+                        <div className="card shadow-lg">
+                            <div className="card-header text-center bg-dark text-white fs-3">
                                 BMI Calculator
                             </div>
                             <div className="card-body p-5">

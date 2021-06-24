@@ -82,7 +82,7 @@ export default class UserSignUp extends Component {
     // Form code to render to the front-end view
     render() {
         return (
-            <div className="p-5" style={{ margin: '100px auto', width: '48rem'}}>
+            <div className="p-5 bg-light" style={{ margin: '100px auto', width: '48rem'}}>
 
                 <form className="card shadow-lg" onSubmit={this.onSubmit}>
                     <h2 className="card-header text-center bg-dark text-white">Create Account</h2>
