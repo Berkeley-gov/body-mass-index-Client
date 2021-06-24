@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 
 export default class UserLogin extends Component {
@@ -30,6 +30,9 @@ export default class UserLogin extends Component {
             });
     }
 
+    //
+
+
     // Function to change and save user's login credentials
     onChangeUsername = (e) => {
         this.setState({ username: e.target.value });
@@ -42,6 +45,16 @@ export default class UserLogin extends Component {
     onSubmit = (e) => {
         // Prevents the default behavior of the html form
         e.preventDefault();
+
+        axios.get('https://body-mass-index-cal.herokuapp.com/users/')
+            .then(response => {
+                this.setState({ users: response.data});
+                console.log(this.state.users);
+            })
+            .catch(error => {
+                console.log('\n> Failed to retrieve all user from the database; this call is from the onSubmit() method');
+                console.log(error);
+            });
 
         const userLoggingIn = {
             username: this.state.username,
