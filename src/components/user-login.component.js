@@ -124,7 +124,7 @@ export default class UserLogin extends Component {
                             <p id="warning-text"></p>
 
                             <div className="nav-item">
-                                <Link to="/users/add" className="nav-link stretched-link">Create An Account?</Link>
+                                <button onClick={()=> this.props.history.push('/users/add')} >Create an account?</button>
                             </div>
 
                             <div  className="form-group mt-2 pt-4" >
