@@ -123,7 +123,9 @@ export default class UserLogin extends Component {
 
                             <p id="warning-text"></p>
 
-                            <Link to="/users/add" className="nav-link stretched-link" tabIndex="-1" aria-disabled="true">Create An Account?</Link>
+                            <div className="nav-item">
+                                <Link to="/users/add" className="nav-link stretched-link" tabIndex="-1" aria-disabled="true">Create An Account?</Link>
+                            </div>
 
                             <div  className="form-group mt-2 pt-4" >
                                 <input style={{ width: '6rem'}} type="submit" value="Submit" className="btn btn-primary fs-5" />
