@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 export default class UserLogin extends Component {
     constructor(props) {
@@ -30,9 +31,6 @@ export default class UserLogin extends Component {
             });
     }
 
-    //
-
-
     // Function to change and save user's login credentials
     onChangeUsername = (e) => {
         this.setState({ username: e.target.value });
@@ -45,16 +43,6 @@ export default class UserLogin extends Component {
     onSubmit = (e) => {
         // Prevents the default behavior of the html form
         e.preventDefault();
-
-        axios.get('https://body-mass-index-cal.herokuapp.com/users/')
-            .then(response => {
-                this.setState({ users: response.data});
-                console.log(this.state.users);
-            })
-            .catch(error => {
-                console.log('\n> Failed to retrieve all user from the database; this call is from the onSubmit() method');
-                console.log(error);
-            });
 
         const userLoggingIn = {
             username: this.state.username,
@@ -99,7 +87,7 @@ export default class UserLogin extends Component {
     render() {
         return (
             <div className="row-fluid">
-                <form  onSubmit={this.onSubmit} style={{ margin: '200px auto'}} className="card shadow-lg col-sm-6">
+                <form  onSubmit={this.onSubmit} style={{ margin: '200px auto'}} className="card shadow-lg col-sm-4">
                     <div className="card form-group bg-body" style={{ margin: '0 auto', width: '100%'}}>
                         <h2 className="card-header text-center bg-dark text-white p-3 fs-1">Login</h2>
 
@@ -134,6 +122,8 @@ export default class UserLogin extends Component {
                             </div>
 
                             <p id="warning-text"></p>
+
+                            <Link to="/users/add" className="nav-link stretched-link" tabIndex="-1" aria-disabled="true">Create An Account?</Link>
 
                             <div  className="form-group mt-2 pt-4" >
                                 <input style={{ width: '6rem'}} type="submit" value="Submit" className="btn btn-primary fs-5" />

@@ -89,8 +89,8 @@ export default class UserHome extends Component {
             <div className="container-fluid fs-5 lh-base bg-light">
                 <main className="row" style={{ padding: '100px 0'}}>
                     {/* start of the welcome board section of the home page. If the user is   */}
-                    <h2 className="col-md-12 text-center fs-1 p-5">Welcome { this.state.userLoggedIn.first_name || '' }</h2>
-                    <p className="text-center fs-4" style={{ marginBottom: '60px' }}>Enter your height and weight below to find your body mass index (BMI). This number is commonly used to judge whether your weight is healthy.</p>
+                    <h2 className="col-md-12 text-center fs-1 p-2">Welcome { this.state.userLoggedIn.first_name || '' }</h2>
+                    <p className="text-center fs-4" style={{ marginBottom: '100px' }}>Enter your height and weight below to find your body mass index (BMI). This number is commonly used to judge whether your weight is healthy.</p>
 
                     <section className="col-md-6 will">
                         <div className="card mb-5 shadow-lg p-1">
