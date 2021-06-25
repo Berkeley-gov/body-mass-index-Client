@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {Link} from "react-router-dom";
 
 export default class UserLogin extends Component {
     constructor(props) {
@@ -122,6 +121,7 @@ export default class UserLogin extends Component {
                             </div>
 
                             <p id="warning-text"></p>
+
                             <div className="nav-item">
                                 <a className="btn btn-outline-primary text-primary stretched-link" href={"/users/add"}>Create an account?</a>
                             </div>
