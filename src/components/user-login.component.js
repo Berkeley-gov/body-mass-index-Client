@@ -123,7 +123,7 @@ export default class UserLogin extends Component {
                             <p id="warning-text"></p>
 
                             <div className="nav-item">
-                                <button onClick={()=> this.props.history.push('/users/add')} >Create an account?</button>
+                                <a onClick={()=> this.props.history.push('/users/add')} >Create an account?</a>
                             </div>
 
                             <div  className="form-group mt-2 pt-4" >
