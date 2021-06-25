@@ -83,7 +83,7 @@ export default class UserSignUp extends Component {
     render() {
         return (
             <div className="row-fluid bg-body" style={{ margin: '200px auto'}}>
-                <div className="col-sm-6 mx-auto">
+                <div className="col-sm-4 mx-auto">
                     <form className="card shadow-lg" onSubmit={this.onSubmit} style={{ width: '100%'}}>
                         <h2 className="card-header text-center bg-dark text-white">Create Account</h2>
                         <div className="form-group row p-4">
