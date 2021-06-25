@@ -122,10 +122,6 @@ export default class UserLogin extends Component {
 
                             <p id="warning-text"></p>
 
-                            <div className="nav-item">
-                                <a className="btn btn-outline-primary text-primary stretched-link" onSelectCapture={this.props.history.push('/users/add')}>Create an account?</a>
-                            </div>
-
                             <div  className="form-group mt-2 pt-4" >
                                 <input style={{ width: '6rem'}} type="submit" value="Submit" className="btn btn-primary fs-5" />
                             </div>
