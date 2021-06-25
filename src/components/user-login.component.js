@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 export default class UserLogin extends Component {
     constructor(props) {
@@ -121,6 +122,9 @@ export default class UserLogin extends Component {
                             </div>
 
                             <p id="warning-text"></p>
+                            <div className="nav-item">
+                                <Link className="btn btn-outline-primary text-primary stretched-link" to="/users/add" >Create an account?</Link>
+                            </div>
 
                             <div  className="form-group mt-2 pt-4" >
                                 <input style={{ width: '6rem'}} type="submit" value="Submit" className="btn btn-primary fs-5" />
@@ -128,10 +132,6 @@ export default class UserLogin extends Component {
                         </div>
                     </div>
                 </form>
-
-                <div className="nav-item">
-                    <a className="btn btn-outline-primary text-primary stretched-link" href={()=> this.props.history.push('/users/add')} >Create an account?</a>
-                </div>
             </div>
         );
     }
