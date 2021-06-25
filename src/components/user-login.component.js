@@ -123,7 +123,7 @@ export default class UserLogin extends Component {
                             <p id="warning-text"></p>
 
                             <div className="nav-item">
-                                <a className="btn btn-outline-primary text-primary stretched-link" href={"/users/add"}>Create an account?</a>
+                                <a className="btn btn-outline-primary text-primary stretched-link" onClickCapture={this.props.history('/users/add')}>Create an account?</a>
                             </div>
 
                             <div  className="form-group mt-2 pt-4" >
