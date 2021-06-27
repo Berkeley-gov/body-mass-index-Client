@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import React from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 // UserSignUp class component allows a user to sign up for an account.
 export default class UserSignUp extends Component {
@@ -94,7 +95,7 @@ export default class UserSignUp extends Component {
         this.props.history.push('/login');
     }
 
-    
+
     render() {
         return (
             <div className="row-fluid bg-body" style={{ margin: '200px auto'}}>
@@ -169,6 +170,8 @@ export default class UserSignUp extends Component {
                                     autoComplete="on"
                                 />
                             </div>
+
+                            <Link  to="/login" className="mt-4 fs-5">Login into account </Link>
                         </div>
 
                         <div className="form-group pt-4 pb-4">

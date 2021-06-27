@@ -1,8 +1,7 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import React, { Component } from 'react';
 
-
-// React Components that were are importing for Root App usage
+// React Components that were are importing for Root App usage.
 import Navbar from './components/navbar.component';
 import UserHome from './components/user-home.component';
 import UserLogin from './components/user-login.component';

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 // UserLogin class component controls access to the web application by authenticating the user's credentials
 export default class UserLogin extends Component {
@@ -102,37 +103,39 @@ export default class UserLogin extends Component {
                     <div className="card form-group bg-body" style={{ margin: '0 auto', width: '100%'}}>
                         <h2 className="card-header text-center bg-dark text-white p-3 fs-1">Login</h2>
 
-                        <div className="form-group p-5">
-                            <div className="form-group mb-4">
-                                <div className="input-group flex-nowrap">
+                        <div className="form-group p-5 m-2">
+                            <div className="form-group mb-2">
+                                <div className="input-group flex-nowrap p-2">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text bg-dark text-white" id="addon-wrapping">@</span>
+                                        <span className="input-group-text bg-dark text-white p-3" id="addon-wrapping">@</span>
                                     </div>
                                     <input type="text"
                                            value={this.state.username}
-                                           className="form-control"
+                                           className="form-control p-3"
                                            onChange={this.onChangeUsername}
-                                           placeholder="Username"
+                                           placeholder="username"
                                            required />
                                 </div>
                             </div>
 
-                            <div className="form-group pt-5">
+                            <div className="form-group p-2">
                                 <div className="input-group flex-nowrap">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text bg-dark text-white" id="addon-wrapping">#</span>
+                                        <span className="input-group-text bg-dark text-white p-3" id="addon-wrapping">#</span>
                                     </div>
                                     <input
                                         type="password"
-                                        className="form-control"
+                                        className="form-control p-3"
                                         value={this.state.password}
                                         onChange={this.onChangePassword}
-                                        placeholder="Password"
+                                        placeholder="password"
                                         required />
                                 </div>
                             </div>
 
                             <p id="warning-text"></p>
+
+                            <Link  to="/users/add" className="mt-5 pt-5 fs-5">Create an account? </Link>
 
                             <div  className="form-group mt-2 pt-4" >
                                 <input style={{ width: '6rem'}} type="submit" value="Submit" className="btn btn-primary fs-5" />
