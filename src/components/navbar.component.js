@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+// Navbar class component renders in a user friendly navigation bar that has access to all other components
 export default class Navbar extends Component {
     render() {
         return (

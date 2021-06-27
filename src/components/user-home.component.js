@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import axios from "axios";
 
+// UserHome class component renders the main page that will be the home page for BMI web app.
+// Main functionality consist of calculating the user's body mass index and performing database CRUD operation on it.
 export default class UserHome extends Component {
-    // Constructor for UserHome instances
+    // Constructor for UserHome component instances.
     constructor(props) {
         super(props);
 
-        // For now, I am going to capture the basic metrics needed for the BMI formula
+        // Capturing the basic metrics needed for the BMI formula along with the user currently logged in and the calculated BMI.
         this.state = {
             heightInFeet: '',
             heightInInches: '',
@@ -15,71 +17,85 @@ export default class UserHome extends Component {
             bodyMassIndex: 0
         }
 
-        // HTTP GET REQUEST: Retrieves the user that is current logged into the application
+        // HTTP GET REQUEST: Retrieves the user that is currently logged into the application.
         axios.get('https://body-mass-index-cal.herokuapp.com/find/' + sessionStorage.getItem('username'))
             .then(response => {
                 console.log(response.data[0]);
-                // If the response comes back empty, then the userLoggedIn state will be assigned an empty object to prevent it from crashing
+                // If the response comes back empty, then the userLoggedIn state will be assigned an empty object to prevent it from crashing.
                 this.setState({ userLoggedIn: response.data[0] || {} });
                 console.log(this.state.userLoggedIn);
             })
             .catch(error => console.log('+ Failed to make the axios get request for user information: ' + error));
 
-        // Data binding the 'this' keyword to its appropriate function
+        // Data binding the 'this' keyword to its appropriate function.
         this.onChangeFeet = this.onChangeFeet.bind(this);
         this.onChangeInches = this.onChangeInches.bind(this);
         this.onChangeWeight = this.onChangeWeight.bind(this);
     }
 
+
+    // Before the component is mounted to the DOM, retrieve the current user's username from the client and checks for login status.
     componentDidMount() {
         let sessionMemory = sessionStorage.getItem('username');
         console.log(sessionMemory);
         console.log('\nCOOKIE has the following information: ' + sessionMemory);
 
+        // If the user's username session is not an empty string, then log it and allow them to remain in the home page.
+        // otherwise, redirect them to the login page to sign into their account.
         if(sessionMemory) {
             console.log(`Signed in as ${sessionMemory}`);
         } else {
+            // Redirects the user to the login component.
             this.props.history.push('/login');
         }
     }
 
-    // Function sets the state for the heightInFeet property
+
+    // Sets the state for the heightInFeet property.
     onChangeFeet = (e) => {
         this.setState({ heightInFeet: Number(e.target.value) });
     }
 
+
+    // Sets the state for the heightInInches property.
     onChangeInches = (e) => {
         this.setState({ heightInInches: Number(e.target.value) });
     }
 
+
+    // Sets the state for the weight property.
     onChangeWeight = (e) => {
         this.setState({ weight: Number(e.target.value) });
     }
 
-    // This is a pure function that returns the user's BMI
-    //TODO: calculateBodyMassIndex function must be test with chai and mocha
+    // This is a pure function that calculates and returns the user's BMI: TESTED.
     calculateBodyMassIndex = (feet, inches, weight) => {
         // Formula for BMI: BMI(kg/m2) = mass(lb) / height2(in) × 703
         return Number((703 * weight / Math.pow(((feet * 12) + inches), 2)));
     }
 
+
     onSubmit = (e) => {
         e.preventDefault();
 
-        // BMI stores the user's body mass index which is already calculated before assignment
+        // BMI stores the user's body mass index which is already calculated before assignment.
         let newBMI = this.calculateBodyMassIndex(this.state.heightInFeet, this.state.heightInInches, this.state.weight);
         console.log(`\n> BMI was calculated to approximately:  ${newBMI.toPrecision(4)}`);
 
+        // Sets the current BMI state to the newly calculated BMI at a decimal precision of 4.
         this.setState({ bodyMassIndex: newBMI.toPrecision(4) });
 
+        // HTTP PUT REQUEST: axios call to update the BMI for the current user logged in.
         axios.put('https://body-mass-index-cal.herokuapp.com/update/' + this.state.userLoggedIn._id, {
             Body_Mass_Index: newBMI
         })
             .then(response => console.log(`\n> User's body mass index was updated to the database: ${response}`))
             .catch(error => console.log(`\n> Failed to load the user's body mass index: ${error}`));
 
+        // the BMI calculated is then rendered to the client.
         let userBMI = document.getElementById('bodyMassIndex');
 
+        // Custom styling to the BMI rendered element above.
         userBMI.style.backgroundColor = 'rgba(205, 14, 14, 0.9)';
         userBMI.innerHTML = `BODY MASS INDEX: ${newBMI.toPrecision(4)}`;
     }

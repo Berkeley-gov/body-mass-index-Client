@@ -1,24 +1,27 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
+// UserLogin class component controls access to the web application by authenticating the user's credentials
 export default class UserLogin extends Component {
     constructor(props) {
         super(props);
 
-        // State will hold an array of users retrieved from the database
+        // State holds an array of users retrieved from the database and the user's login credentials
         this.state = {
             username: '',
             password: '',
             users: []
         }
 
-        // binds all this keywords to the appropriate method that is invoking it
+        // binds all the "this" keywords to the appropriate method that is invoking it.
         this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
     }
 
-    // Upon mounting and initializing the Component, fetch all users from the database
+
+    // Before mounting and initializing the component, all users are retrieved from the database.
     componentDidMount() {
+        // HTTP GET REQUEST: retrieves all users from the database sets to the state of users.
         axios.get('https://body-mass-index-cal.herokuapp.com/users/')
             .then(response => {
                 this.setState({ users: response.data});
@@ -30,19 +33,25 @@ export default class UserLogin extends Component {
             });
     }
 
-    // Function to change and save user's login credentials
+
+    // Function to change and save username.
     onChangeUsername = (e) => {
         this.setState({ username: e.target.value });
     }
 
+
+    // Function to change and save password.
     onChangePassword = (e) => {
         this.setState({ password: e.target.value });
     }
 
+
+    // Handler function that controls the functionality of the form's submission.
     onSubmit = (e) => {
-        // Prevents the default behavior of the html form
+        // Prevents the default behavior of the html form.
         e.preventDefault();
 
+        // Object to store the user inputted login credentials.
         const userLoggingIn = {
             username: this.state.username,
             password: this.state.password
@@ -51,31 +60,34 @@ export default class UserLogin extends Component {
         console.log('\nUser attempted to login with the following credentials:');
         console.log(userLoggingIn);
 
+        // Authenticates login information.
         this.checkCredentials(userLoggingIn);
     }
 
+
+    // Authenticates the user's login information that was submitted from the form.
     checkCredentials = (credentials) => {
-        // 'authentication' variable will keep tracker if the credentials were correctly authenticated using a boolean value
+        // 'authentication' variable will keep tracker if the credentials were correctly authenticated using a boolean value.
         let authentication = false;
 
+        // Loops through the state of users retrieved from the database.
         for (let arrayElement of this.state.users) {
+            // Checks if the current user in iteration has the same password and username that was inputted from the form.
             authentication = arrayElement.username === credentials.username && arrayElement.password === credentials.password;
 
             if(authentication) {
-                // If the user is successfully authenticated, then redirect the user to the home page
                 console.log('\n> User successfully authenticated and logged into their account.\nUSER LOGGED IN:' + arrayElement.first_name);
-
-                // Setting the user login cookies
+                // Setting the user login cookies.
                 sessionStorage.setItem('username', arrayElement.username);
 
-                // If the user is authenticated, then redirect them to home page
+                // If the user is successfully authenticated, then redirects the user to the home page.
                 this.props.history.push('/');
 
             } else if(authentication === false) {
-                // Grabs the paragraph element from the dom based on it's ID
+                // Grabs the paragraph element from the DOM.
                 let warningText = document.getElementById('warning-text');
 
-                // Set text context to the paragraph element and color it red
+                // Sets text context to the paragraph element and colors it red.
                 warningText.innerHTML = "Username or password was incorrect. Please try again!";
                 warningText.style.color = "red";
                 warningText.style.fontSize = "16px";

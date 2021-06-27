@@ -1,11 +1,12 @@
 import React, { Component} from 'react';
 import axios from "axios";
 
-
+// UserUpdate class component allows users to update any account information.
 export default class UserUpdate extends Component {
     constructor(props) {
         super(props);
 
+        // State contains all information needed to track account information that -can- be updated.
         this.state = {
             username: '',
             password: '',
@@ -17,7 +18,7 @@ export default class UserUpdate extends Component {
         };
 
 
-        // Data binding all the "this" keywords to the appropriate method that is invoking it
+        // Data binding all the "this" keywords to the appropriate method that is invoking it.
         this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
         this.onChangeFirstName = this.onChangeFirstName.bind(this);
@@ -26,7 +27,10 @@ export default class UserUpdate extends Component {
         this.onChangeBodyMassIndex = this.onChangeBodyMassIndex.bind(this);
     }
 
+
+    // Makes an axios get call to retrieve the current user logged in before the component itself is rendered.
     componentDidMount() {
+        // HTTP GET REQUEST: makes a get request to the BMI API for the current user logged in based on stored sessions username.
         axios.get('https://body-mass-index-cal.herokuapp.com/find/' + sessionStorage.getItem('username'))
             .then(response => {
                 this.setState({ user: response.data[0] || {}});
@@ -38,34 +42,48 @@ export default class UserUpdate extends Component {
             });
     }
 
+
+    // Sets the username to update.
     onChangeUsername = (e) => {
         this.setState({ username: e.target.value });
     }
 
+
+    // Sets the password to update.
     onChangePassword = (e) => {
         this.setState({ password: e.target.value });
     }
 
+
+    // Sets the first name to update.
     onChangeFirstName = (e) => {
         this.setState({ firstName: e.target.value });
     }
 
+
+    // Sets the last name to update.
     onChangeLastName = (e) => {
         this.setState({ lastName: e.target.value });
     }
 
+
+    // Sets the age to update.
     onChangeAge = (e) => {
         this.setState({ age: e.target.value });
     }
 
+
+    // Sets the BMI to update.
     onChangeBodyMassIndex = (e) => {
         this.setState({ bodyMassIndex: e.target.value });
     }
 
+
+    // Handler function that controls the functionality of the form's submission.
     onSubmit = (e) => {
         e.preventDefault();
 
-        // Creating a user object on form submit and initializing all variables for it
+        // Creating a user object on form submit and initializing all variables for it.
         const userToUpdate = {
             username: this.state.username,
             password: this.state.password,
@@ -77,16 +95,18 @@ export default class UserUpdate extends Component {
 
         console.log(userToUpdate);
 
+        // Retrieving the username from the session storage.
         const username = sessionStorage.getItem('username');
         console.log(`\n> username from cookie is: ${username}`);
 
         console.log(this.state.user._id);
 
-        // 'authentication' variable will keep tracker if the credentials were correctly authenticated using a boolean value
+        // HTTP PUT REQUEST: request to update the user's new account information to the database.
         axios.put('https://body-mass-index-cal.herokuapp.com/users/update/' + this.state.user._id, userToUpdate)
             .then(response => { console.log('\n> User new information was saved to the database as: ' + response) })
             .catch(error => console.log(`\n> Failed to update the user's new information: ${error}`));
     }
+
 
     render() {
         return (

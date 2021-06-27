@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-export default class Navbar extends Component {
+// BMIimg component class renders a mobile responsive image for the home page.
+export default class BMIimg extends Component {
     render() {
         return (
             <div className="row">

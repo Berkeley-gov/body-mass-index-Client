@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+// Footer class component renders a navigational footer bar to the home page. Contains access to my portfolio.
 export default class Footer extends Component {
     render() {
         return (
@@ -22,8 +23,7 @@ export default class Footer extends Component {
                                     <Link to="/" className="nav-link">Home</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/login" className="nav-link" href="#" tabIndex="-1"
-                                       aria-disabled="true">Login</Link>
+                                    <Link to="/login" className="nav-link" href="#" tabIndex="-1" aria-disabled="true">Login</Link>
                                 </li>
                             </ul>
                         </div>

@@ -11,12 +11,14 @@ import UserUpdate from './components/user-update.component';
 import Footer from "./components/footer.component";
 import Image from "./components/BMIimage.component";
 
+// App Component class defines the main entrance of the application and renders a UI with Child components.
 class App extends Component {
-
     render() {
-        sessionStorage.setItem('username', 'Stranger');
+        // Before rendering the component to the DOM, session's storage will be assigned an empty username.
+        sessionStorage.setItem('username', '');
 
         return (
+            // Return the main UI for the BMI web app to the client.
             <Router>
                 <div className="bg-body">
                     <Navbar />
@@ -31,6 +33,6 @@ class App extends Component {
             </Router>
         );
     }
-};
+}
 
 export default App;
