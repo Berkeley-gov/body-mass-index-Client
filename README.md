@@ -26,3 +26,6 @@ The following technologies were used to build this project:
 * JavaScript (React)
 * NodeJS (Express, Web Pack, Mongoose)
 * Database: MongooseDB
+* Postman (API Testing)
+* Mocha & Chai (Unit Testing)
+* Deployment (Heroku and Netlify)
