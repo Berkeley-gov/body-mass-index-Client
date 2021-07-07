@@ -12,7 +12,7 @@ The application uses client-server RESTful architecture principles. The Backend 
 The BMI API allows for CRUD operations on user accounts and their BMIs.
 
 ## Project Aim
-The goal of the project was to create a simple web application that allows users to create an account to track and calculate their body mass index.
+The goal of the project was to create a single page web application that allows users to calculate their body mass index.
 
 ## Summary 
 The Body Mass Index Calculator application uses the BMI API, a modern RESTful API linked to an extensive database containing basic user account information. The API allows for CRUD operations on user accounts and their body mass index.
