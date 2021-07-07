@@ -6,7 +6,7 @@ BMI API endpoints for Heroku: https://body-mass-index-cal.herokuapp.com/
 
 ## Introduction
 
-This project is meant to demonstrate my ability to build a full-stack web application using the modern MERN technology stack.
+This project demonstrates my ability to build a full-stack web application using the modern MERN technology stack.
 
 The application uses client-server RESTful architecture principles. The Backend was written in NodeJS and it's referenced as the BMI API.
 The BMI API allows for CRUD operations on user accounts and their BMIs.
