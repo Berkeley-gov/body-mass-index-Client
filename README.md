@@ -17,7 +17,9 @@ The goal of the project was to create a simple web application that allows users
 ## Summary 
 The Body Mass Index Calculator application uses the BMI API, a modern RESTful API linked to an extensive database containing basic user account information. The API allows for CRUD operations on user accounts and their body mass index.
 
-The application also uses bootstrap for a smooth and seamless user interface that is mobile responsive. Once on the website, users will be prompted to log in or create an account. Once they sign up for an account, users are then redirected to the home page where they can use the body mass index calculator and check if they are overweight. This is the main feature of the web application but it also allows users to update and delete information regarding their own accounts.
+The application also uses bootstrap for a smooth and seamless user interface that is mobile responsive. 
+
+Once on the website, users will be prompted to log in or create an account. Once they sign up for an account, users are then redirected to the home page where they can use the body mass index calculator and check if they are overweight. This is the main feature of the web application but it also allows users to update and delete information regarding their own accounts.
 
 ## Technologies
 The following technologies were used to build this project:
