@@ -1,0 +1,62 @@
+.theme-background-color {
+    background-color: #212529;
+}
+
+#login-form {
+    background-color: #AC5FDB;
+    padding: 10px;
+    margin: 0;
+    border-radius: 6px;
+}
+
+ .submit  {
+    background-color: #212529 !important;
+    color: #FFF !important;
+}
+
+h2 {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 40px;
+}
+
+.account-text {
+    margin-left: 10px;
+}
+
+.account-text:hover {
+    color: #FFF !important;
+}
+
+.submit:hover {
+    opacity: 0.9;
+}
+
+.input-group-prepend {
+    width: 50px !important;
+}
+
+@media screen and (max-width: 410px) {
+    .row-fluid {
+        margin: 10px;
+    }
+
+    #login-form {
+        margin: 190px auto !important;
+    }
+
+    .submit {
+        margin: 0 0 10px 35%;
+    }
+
+    .p-5 {
+        padding: 0.5rem !important;
+    }
+}
+
+@media screen and (min-width: 864px) {
+    .p-5 {
+        padding-top: 0.5rem !important;
+    }
+}
+

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
+import "../assets/login-component.css";
 
 // UserLogin class component controls access to the web application by authenticating the user's credentials
 export default class UserLogin extends Component {
@@ -99,15 +100,15 @@ export default class UserLogin extends Component {
     render() {
         return (
             <div className="row-fluid">
-                <form  onSubmit={this.onSubmit} style={{ margin: '200px auto'}} className="card shadow-lg col-sm-4">
-                    <div className="card form-group bg-body" style={{ margin: '0 auto', width: '100%'}}>
-                        <h2 className="card-header text-center bg-dark text-white p-3 fs-1">Login</h2>
+                <form id="login-form" onSubmit={this.onSubmit} style={{ margin: '200px auto'}} className="shadow-lg col-sm-4 login-component theme-background-color">
+                    <div className="form-group" style={{ width: '100%'}}>
+                        <h2 className="text-center text-white p-3">Login</h2>
 
-                        <div className="form-group p-5 m-2">
+                        <div className="form-group p-5">
                             <div className="form-group mb-2">
                                 <div className="input-group flex-nowrap p-2">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text bg-dark text-white p-3" id="addon-wrapping">@</span>
+                                        <span className="input-group-text theme-background-color text-white p-3" id="addon-wrapping">@</span>
                                     </div>
                                     <input type="text"
                                            value={this.state.username}
@@ -135,10 +136,10 @@ export default class UserLogin extends Component {
 
                             <p id="warning-text"></p>
 
-                            <Link  to="/users/add" className="mt-5 pt-5 fs-5">Create an account? </Link>
+                            <Link  to="/users/add" className="mt-5 pt-5 fs-5 text-dark account-text">Create an account? </Link>
 
                             <div  className="form-group mt-2 pt-4" >
-                                <input style={{ width: '6rem'}} type="submit" value="Submit" className="btn btn-primary fs-5" />
+                                <input style={{ width: '6rem'}} type="submit" value="Submit" className="btn submit fs-5" />
                             </div>
                         </div>
                     </div>

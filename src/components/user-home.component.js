@@ -102,7 +102,7 @@ export default class UserHome extends Component {
 
     render() {
         return (
-            <div className="container-fluid fs-5 lh-base bg-light">
+            <div className="container-fluid fs-5 lh-base">
                 <main className="row" style={{ padding: '100px 0'}}>
                     {/* start of the welcome board section of the home page. If the user is   */}
                     <h2 className="col-md-12 text-center fs-1 p-2">Welcome { this.state.userLoggedIn.first_name || '' }</h2>

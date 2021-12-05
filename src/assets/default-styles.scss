@@ -1,0 +1,13 @@
+$defaultFontSize: 26px;
+
+* {
+  font-size: $defaultFontSize;
+}
+
+/* Universal box sizing */
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+

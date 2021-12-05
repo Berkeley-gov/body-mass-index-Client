@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import React, { Component } from 'react';
+import "./assets/default-styles.scss";
 
 // React Components that were are importing for Root App usage.
 import Navbar from './components/navbar.component';
@@ -8,7 +9,6 @@ import UserLogin from './components/user-login.component';
 import UserSignUp from './components/user-signup.component';
 import UserUpdate from './components/user-update.component';
 import Footer from "./components/footer.component";
-import Image from "./components/BMIimage.component";
 
 // App Component class defines the main entrance of the application and renders a UI with Child components.
 class App extends Component {
@@ -19,16 +19,14 @@ class App extends Component {
         return (
             // Return the main UI for the BMI web app to the client.
             <Router>
-                <div className="bg-body">
+                <main style={{ backgroundColor: "#29262B" }}>
                     <Navbar />
-                    <Image/>
                     <Route path="/" exact={true} component = {UserHome} />
                     <Route path="/login" component={UserLogin} />
                     <Route path="/users/" component={UserSignUp} />
                     <Route path="/update/:id" component={UserUpdate} />
-                    <img id="healthPic" style={{ height: '280px', width:' 100%'}} className="img-responsive" src="https://www.myhealthunlimited.com/wp-content/themes/encompass/images/layout/feat-img-sample.jpg" alt="Dumbbell weights for exercising" />
                     <Footer />
-                </div>
+                </main>
             </Router>
         );
     }
